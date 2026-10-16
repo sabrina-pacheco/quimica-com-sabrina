@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Um espaço de encontro com a Química. Conteúdos, roteiros e materiais das disciplinas da professora Sabrina.">
+    <meta name="theme-color" content="#0d6355">
+    <title>Química com Sabrina · Espaço de aprendizagem</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <a class="skip" href="#disciplinas">Ir para as disciplinas</a>
+    <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+            <symbol id="flask" viewBox="0 0 24 24">
+                <path
+                    d="M9 3h6M10 3v7L4.7 19a1.3 1.3 0 0 0 1.1 2h12.4a1.3 1.3 0 0 0 1.1-2L14 10V3M8 14h8M10 17h.01M14 18h.01" />
+            </symbol>
+            <symbol id="arrow" viewBox="0 0 24 24">
+                <path d="M5 12h14m-6-6 6 6-6 6" />
+            </symbol>
+            <symbol id="book" viewBox="0 0 24 24">
+                <path d="M12 5v15M3 4c4-1 6 0 9 2 3-2 5-3 9-2v14c-4-1-6 0-9 2-3-2-5-3-9-2z" />
+            </symbol>
+            <symbol id="sun" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1" />
+            </symbol>
+            <symbol id="search" viewBox="0 0 24 24">
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="m16 16 5 5" />
+            </symbol>
+            <symbol id="leaf" viewBox="0 0 24 24">
+                <path d="M19 3C8 2 2 8 6 15c6 6 15 0 13-12ZM4 21 15 9" />
+            </symbol>
+            <symbol id="layers" viewBox="0 0 24 24">
+                <path d="m12 3 10 5-10 5L2 8Zm-9 9 9 5 9-5M3 17l9 5 9-5" />
+            </symbol>
+        </defs>
+    </svg>
+    <header class="header">
+        <div class="header-inner">
+            <a class="brand" href="#"><span class="brand-icon"><svg>
+                        <use href="#flask" />
+                    </svg></span><span>Química <strong>com Sabrina</strong><small>ESPAÇO DE
+                        APRENDIZAGEM</small></span></a>
+            <nav aria-label="Navegação principal"><a class="nav-active" href="#disciplinas">Disciplinas</a><a
+                    href="#conteudos">Conteúdos</a><button id="about-open">Sobre o espaço</button></nav>
+            <button class="theme" id="theme-toggle" aria-label="Ativar modo escuro" title="Alterar tema"><svg>
+                    <use href="#sun" />
+                </svg></button>
+        </div>
+    </header>
+    <main>
+        <section class="hero wrap" aria-labelledby="hero-title">
+            <div class="hero-copy"><span class="eyebrow"><span class="dot"></span> CURIOSIDADE QUE TRANSFORMA</span>
+                <h1 id="hero-title">
+    A Química faz parte<br>
+    do <em>seu mundo.</em>
+</h1>
+                <p>Um espaço para conectar ideias, explorar a ciência<br class="desktop"> e construir conhecimento, uma
+                    descoberta de cada vez.</p><a class="primary" href="#disciplinas">Explore as disciplinas <svg>
+                        <use href="#arrow" />
+                    </svg></a><span class="byline">Com a professora Sabrina Pacheco</span>
+            </div>
+            <div class="chem-art" aria-hidden="true"><span class="art-label">OBSERVAR · INVESTIGAR ·
+                    DESCOBRIR</span><svg class="hero-science" viewBox="0 0 500 330" fill="none">
+                    <circle cx="259" cy="173" r="126" stroke="currentColor" stroke-opacity=".11" />
+                    <circle cx="259" cy="173" r="93" stroke="currentColor" stroke-opacity=".11"
+                        stroke-dasharray="4 8" />
+                    <path d="M64 215h48l24-40h48M352 117h50l25-43M354 266h58" stroke="currentColor" stroke-opacity=".25"
+                        stroke-width="2" />
+                    <g stroke="#5c9e8d" stroke-width="3">
+                        <path d="m105 91 32-18 32 18v37l-32 18-32-18zM169 91l32-18 32 18v37l-32 18-32-18" />
+                    </g>
+                    <g fill="#dbeee5">
+                        <circle cx="105" cy="91" r="7" />
+                        <circle cx="169" cy="128" r="7" />
+                        <circle cx="233" cy="91" r="7" />
+                    </g>
+                    <path d="M240 82h53m-43 0v75l-48 91c-7 14 1 27 18 27h94c17 0 25-13 18-27l-48-91V82" stroke="#176c5a"
+                        fill="#f6fbf5" stroke-width="4" stroke-linejoin="round" />
+                    <path d="m232 199-27 51c-5 10 1 20 14 20h96c13 0 19-10 14-20l-27-51c-28 13-44-13-70 0"
+                        fill="#87bda1" />
+                    <path d="M259 105v54l-23 43" stroke="white" stroke-width="6" stroke-linecap="round" />
+                    <g fill="#f5faf4">
+                        <circle cx="250" cy="236" r="6" />
+                        <circle cx="283" cy="250" r="9" />
+                        <circle cx="291" cy="220" r="4" />
+                    </g>
+                    <g fill="#e0a376">
+                        <circle cx="282" cy="176" r="5" />
+                        <circle cx="263" cy="146" r="4" />
+                        <circle cx="278" cy="119" r="3" />
+                    </g>
+                    <g transform="translate(370 175)" stroke="#528b7b" stroke-width="2">
+                        <ellipse rx="48" ry="17" transform="rotate(25)" />
+                        <ellipse rx="48" ry="17" transform="rotate(85)" />
+                        <ellipse rx="48" ry="17" transform="rotate(145)" />
+                        <circle r="7" fill="#528b7b" />
+                    </g>
+                    <circle cx="427" cy="74" r="5" fill="#c79068" />
+                    <circle cx="64" cy="215" r="5" fill="#c79068" />
+                    <path d="M339 52v12m-6-6h12M124 248v12m-6-6h12" stroke="#c79068" stroke-width="2" />
+                </svg><span class="art-caption"><span>01 — ∞</span> Há um universo em cada descoberta.</span></div>
+        </section>
+        <section id="disciplinas" class="wrap courses-section" aria-labelledby="courses-title">
+            <div class="section-heading">
+                <div><span class="eyebrow">SEU PONTO DE PARTIDA</span>
+                    <h2 id="courses-title">Caminhos pela Química</h2>
+                    <p>Escolha uma disciplina e encontre seu espaço de estudo.</p>
+                </div><span class="section-note"><svg>
+                        <use href="#book" />
+                    </svg> Aprender é conectar.</span>
+            </div>
+            <div class="course-grid">
+                <article class="course-card green">
+                    <div class="course-visual"><span class="course-number">01 / FUNDAMENTOS</span><svg
+                            viewBox="0 0 340 155" aria-hidden="true">
+                            <g fill="none" stroke="currentColor">
+                                <ellipse cx="245" cy="80" rx="58" ry="23" stroke-width="1.5"
+                                    transform="rotate(-28 245 80)" />
+                                <ellipse cx="245" cy="80" rx="58" ry="23" stroke-width="1.5"
+                                    transform="rotate(32 245 80)" />
+                                <ellipse cx="245" cy="80" rx="58" ry="23" stroke-width="1.5"
+                                    transform="rotate(92 245 80)" />
+                                <circle cx="245" cy="80" r="7" fill="currentColor" />
+                                <circle cx="194" cy="106" r="4" fill="currentColor" />
+                                <path d="M31 125h40m-20-20v40" opacity=".2" />
+                            </g>
+                        </svg><span class="visual-title">Qi<span>Química I</span></span></div>
+                    <div class="course-body"><span class="course-kicker">O INÍCIO DAS DESCOBERTAS</span>
+                        <h3>Química I</h3>
+                        <p>Um primeiro olhar para a Química e suas conexões com o cotidiano.</p><span
+                            class="status"><span class="dot"></span> 11 temas · Materiais em preparação</span><button
+                            class="course-button" data-course="quimica-1">Explorar disciplina <svg>
+                                <use href="#arrow" />
+                            </svg></button>
+                    </div>
+                </article>
+                <article class="course-card terracotta">
+                    <div class="course-visual"><span class="course-number">02 / CONEXÕES</span><svg class="enzyme-art"
+                            viewBox="0 0 180 150" role="img" aria-labelledby="enzyme-title">
+                            <title id="enzyme-title">Ilustração esquemática de uma enzima com sítio ativo e um substrato
+                                se aproximando</title>
+                            <g stroke="currentColor" stroke-linejoin="round">
+                                <path
+                                    d="M65 35C43 25 22 41 26 62C6 73 11 99 30 108C35 132 61 142 81 130C103 142 128 126 127 108C149 98 147 72 131 61L114 69L98 57L103 38C91 27 78 28 65 35Z"
+                                    fill="currentColor" fill-opacity=".11" stroke-width="2.4" />
+                                <path
+                                    d="M65 35C77 44 74 55 62 61S37 60 32 75S44 101 60 94S75 74 90 84S92 114 78 119M30 108C36 94 47 112 58 117M81 130C73 117 98 126 108 110S117 84 106 76M26 62C35 56 45 69 43 78M65 73C79 65 81 49 88 43"
+                                    fill="none" stroke-width="3.8" stroke-opacity=".44" stroke-linecap="round" />
+                                <path d="m103 38-5 19 16 12 17-8" fill="none" stroke-width="3.2" />
+                                <path d="m126 15 20-8 15 13-5 20-20 8-15-13Z" fill="currentColor" fill-opacity=".28"
+                                    stroke-width="2" />
+                                <path d="m131 47-11 12m1-7-1 7 7-1" fill="none" stroke-width="1.5"
+                                    stroke-dasharray="2 3" />
+                            </g>
+                        </svg><span class="visual-title biotec-title">BIOTEC<span>Química & vida</span></span></div>
+                    <div class="course-body"><span class="course-kicker">CIÊNCIA QUE ENCONTRA A VIDA</span>
+                        <h3>Química para Biotecnologia</h3>
+                        <p>Um espaço para aproximar o conhecimento químico e a biotecnologia.</p><span
+                            class="status"><span class="dot"></span> Conteúdos em organização</span><button
+                            class="course-button" data-course="biotecnologia">Explorar disciplina <svg>
+                                <use href="#arrow" />
+                            </svg></button>
+                    </div>
+                </article>
+                <article class="course-card violet">
+                    <div class="course-visual"><span class="course-number">03 / NOVOS OLHARES</span><svg
+                            class="reaction-art" viewBox="0 0 180 150" role="img" aria-labelledby="reaction-title">
+                            <title id="reaction-title">Perfil de energia de uma reação, com a energia de ativação
+                                indicada do nível dos reagentes até o pico da curva</title>
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 16v111h146m-150-106 4-5 4 5m137 102 5 4-5 4" stroke-width="1.5"
+                                    opacity=".55" />
+                                <path d="M29 92h23c20 0 16-58 43-58s24 76 49 76h15" stroke-width="3.2" />
+                                <path d="M52 92h62M95 34h19" stroke-width="1" stroke-dasharray="3 4" opacity=".5" />
+                                <path d="M111 38v50m-4-45 4-5 4 5m-8 40 4 5 4-5" stroke-width="1.5" />
+                            </g>
+                            <g fill="currentColor" stroke="none" font-family="DM Sans, sans-serif"><text x="2" y="17"
+                                    font-size="10">E</text><text x="118" y="66" font-size="13"
+                                    font-style="italic">Eₐ</text><text x="94" y="144" font-size="9">Progresso da
+                                    reação</text></g>
+                        </svg><span class="visual-title reaction-title">Qii<span>Química II</span></span></div>
+                    <div class="course-body"><span class="course-kicker">CONHECIMENTO EM TRANSFORMAÇÃO</span>
+                        <h3>Química II</h3>
+                        <p>Novas perspectivas para ampliar conexões e continuar sua aprendizagem.</p><span
+                            class="status"><span class="dot"></span> Conteúdos em organização</span><button
+                            class="course-button" data-course="quimica-2">Explorar disciplina <svg>
+                                <use href="#arrow" />
+                            </svg></button>
+                    </div>
+                </article>
+            </div>
+            <div class="future">
+                <div class="future-icon">Q<span>III</span></div>
+                <div>
+                    <h3>A próxima descoberta: Química III</h3>
+                    <p>Um novo caminho de aprendizagem, para uma etapa futura.</p>
+                </div><span class="future-badge">Em breve</span>
+            </div>
+        </section>
+        <section id="conteudos" class="content-section wrap" aria-labelledby="content-title">
+            <div class="section-heading">
+                <div><span class="eyebrow">TUDO NO SEU LUGAR</span>
+                    <h2 id="content-title">Espaço de conteúdos</h2>
+                    <p>Roteiros, materiais e atividades organizados por disciplina.</p>
+                </div>
+            </div>
+            <div class="workspace">
+                <div class="course-tabs" role="tablist" aria-label="Escolher disciplina"><button id="tab-quimica-1"
+                        role="tab" aria-selected="true" aria-controls="course-panel" data-tab="quimica-1">Química
+                        I</button><button id="tab-biotecnologia" role="tab" aria-selected="false"
+                        aria-controls="course-panel" tabindex="-1" data-tab="biotecnologia">Química para
+                        Biotecnologia</button><button id="tab-quimica-2" role="tab" aria-selected="false"
+                        aria-controls="course-panel" tabindex="-1" data-tab="quimica-2">Química II</button></div>
+                <div id="course-panel" role="tabpanel" aria-labelledby="tab-quimica-1" tabindex="0">
+                    <div class="panel-heading">
+                        <div><span class="panel-label">DISCIPLINA SELECIONADA</span>
+                            <h3 id="selected-name">Química I</h3>
+                        </div><span class="outline-badge" id="course-status">11 temas</span>
+                    </div>
+                    <div id="topic-content">
+                        <p class="topic-intro">11 temas para acompanhar seu percurso em Química I, na sequência de
+                            estudo da disciplina. Os materiais serão acrescentados em cada tema.</p>
+                        <div class="topic-grid">
+                            <article class="topic-card" id="quimica-1-tema-01">
+                                <div class="topic-top"><span class="topic-number">TEMA 01</span><svg aria-hidden="true">
+                                        <use href="#flask" />
+                                    </svg></div>
+                                <h4>O que é a Química e o método científico?</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-02">
+                                <div class="topic-top"><span class="topic-number">TEMA 02</span><svg aria-hidden="true">
+                                        <use href="#layers" />
+                                    </svg></div>
+                                <h4>Substâncias puras, misturas e separação de misturas</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-03">
+                                <div class="topic-top"><span class="topic-number">TEMA 03</span><svg aria-hidden="true">
+                                        <use href="#layers" />
+                                    </svg></div>
+                                <h4>Estrutura da matéria</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-04">
+                                <div class="topic-top"><span class="topic-number">TEMA 04</span><svg aria-hidden="true">
+                                        <use href="#book" />
+                                    </svg></div>
+                                <h4>Tabela periódica</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-05">
+                                <div class="topic-top"><span class="topic-number">TEMA 05</span><svg aria-hidden="true">
+                                        <use href="#layers" />
+                                    </svg></div>
+                                <h4>Ligações químicas</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-06">
+                                <div class="topic-top"><span class="topic-number">TEMA 06</span><svg aria-hidden="true">
+                                        <use href="#layers" />
+                                    </svg></div>
+                                <h4>Geometria molecular e polaridade</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-07">
+                                <div class="topic-top"><span class="topic-number">TEMA 07</span><svg aria-hidden="true">
+                                        <use href="#layers" />
+                                    </svg></div>
+                                <h4>Ligações intermoleculares</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-08">
+                                <div class="topic-top"><span class="topic-number">TEMA 08</span><svg aria-hidden="true">
+                                        <use href="#flask" />
+                                    </svg></div>
+                                <h4>Funções inorgânicas</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-09">
+                                <div class="topic-top"><span class="topic-number">TEMA 09</span><svg aria-hidden="true">
+                                        <use href="#flask" />
+                                    </svg></div>
+                                <h4>Reações inorgânicas</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-10">
+                                <div class="topic-top"><span class="topic-number">TEMA 10</span><svg aria-hidden="true">
+                                        <use href="#book" />
+                                    </svg></div>
+                                <h4>Balanceamento de equações químicas</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                            <article class="topic-card" id="quimica-1-tema-11">
+                                <div class="topic-top"><span class="topic-number">TEMA 11</span><svg aria-hidden="true">
+                                        <use href="#book" />
+                                    </svg></div>
+                                <h4>Estequiometria</h4>
+                                <details>
+                                    <summary>Materiais do tema <span aria-hidden="true">+</span></summary>
+                                    <p>Os materiais deste tema ainda não foram adicionados. Este espaço reunirá os
+                                        roteiros, arquivos e atividades correspondentes.</p>
+                                </details>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="empty-state" id="course-empty" hidden><span class="empty-icon"><svg>
+                                <use href="#book" />
+                            </svg></span>
+                        <h4>Um espaço pronto para suas próximas descobertas.</h4>
+                        <p>Os conteúdos desta disciplina estão sendo organizados.<br>Em breve, você encontrará aqui a
+                            sequência de estudo e os materiais de cada tema.</p>
+                        <div class="resource-types"><span>01 &nbsp; Conteúdos</span><span>02 &nbsp; Roteiros de
+                                estudo</span><span>03 &nbsp; Materiais e atividades</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="closing wrap"><svg>
+                <use href="#leaf" />
+            </svg>
+            <p>A ciência começa com uma pergunta.<br><strong>Vamos descobrir juntos?</strong></p><span>QUÍMICA COM
+                SABRINA</span>
+        </section>
+    </main>
+    <footer class="wrap"><span>Química com Sabrina <span class="footer-dot">·</span> Um espaço em construção, feito para
+            aprender.</span><a href="#">Voltar ao início ↑</a></footer>
+    <dialog id="about-dialog" aria-labelledby="about-title"><button class="close" id="about-close"
+            aria-label="Fechar">×</button><span class="eyebrow">ENSINAR, CONECTAR, DESCOBRIR</span>
+        <h2 id="about-title">Um lugar para aprender Química.</h2>
+        <p>Este é o espaço de conteúdos da professora Sabrina Pacheco: um ponto de encontro para as disciplinas de
+            Química I, Química para Biotecnologia e Química II.</p>
+        <p>Química I já tem sua sequência de 11 temas organizada. Os materiais serão acrescentados aos poucos, e as
+            demais disciplinas estão em preparação. Química III fará parte de uma etapa futura.</p><button
+            class="primary" id="about-done">Vamos explorar <svg>
+                <use href="#arrow" />
+            </svg></button>
+    </dialog>
+</body>
+
+</html>
