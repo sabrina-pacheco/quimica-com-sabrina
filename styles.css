@@ -1358,4 +1358,43 @@ body.dark .future {
     .reaction-title {
         font-size: 58px
     }
+} /* Fecha as regras para telas de até 650px */
+
+/* INÍCIO: organização dos botões de materiais */
+.material-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.material-links .primary {
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* FIM: organização dos botões de materiais */
+
+/* Aparência da imagem dentro do card */
+.imagem-material {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+/* Espaço entre o título e a imagem */
+#quimica-1-tema-09 h4 {
+    min-height: 0;
+    margin-bottom: 14px;
+}
+
+/* Espaço entre o título de balanceamento e a imagem */
+#quimica-1-tema-10 h4 {
+    min-height: 0;
+    margin-bottom: 14px;
 }
