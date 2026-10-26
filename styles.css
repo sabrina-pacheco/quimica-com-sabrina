@@ -1398,3 +1398,45 @@ body.dark .future {
     min-height: 0;
     margin-bottom: 14px;
 }
+
+/* Links diretos de cada tema */
+.topic-card {
+    cursor: pointer;
+    scroll-margin-top: 24px;
+}
+
+.topic-card:target {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 20%, transparent), var(--shadow);
+}
+
+.topic-card details {
+    cursor: default;
+}
+
+.topic-top .topic-link {
+    margin-left: auto;
+    margin-right: 12px;
+    padding: 5px 8px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--green);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    white-space: nowrap;
+}
+
+.topic-top .topic-link:hover {
+    border-color: var(--green);
+    background: var(--soft);
+}
+
+@media(max-width:650px) {
+    .topic-top .topic-link {
+        margin-right: 9px;
+        padding: 4px 7px;
+        font-size: 8px;
+    }
+}

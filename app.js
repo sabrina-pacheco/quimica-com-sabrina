@@ -33,6 +33,79 @@ function selectCourse(id, focusTab = false) {
         hasTopics ? '11 temas' : 'Em preparação';
 }
 
+// Abre um tema quando a URL termina com, por exemplo, #quimica-1-tema-09.
+function topicFromHash() {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    const topic = document.getElementById(id);
+
+    return topic?.matches('.topic-card') ? topic : null;
+}
+
+function openTopicFromHash() {
+    const topic = topicFromHash();
+
+    if (!topic) return;
+
+    selectCourse('quimica-1');
+    topic.querySelector('details')?.setAttribute('open', '');
+
+    requestAnimationFrame(() => {
+        const reduceMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        topic.scrollIntoView({
+            behavior: reduceMotion ? 'instant' : 'smooth',
+            block: 'start'
+        });
+    });
+}
+
+function topicUrl(topic) {
+    return `${window.location.origin}${window.location.pathname}#${topic.id}`;
+}
+
+function goToTopic(topic) {
+    if (window.location.hash === `#${topic.id}`) openTopicFromHash();
+    else window.location.hash = topic.id;
+}
+
+async function copyTopicUrl(button) {
+    const topic = button.closest('.topic-card');
+    const url = topicUrl(topic);
+
+    try {
+        await navigator.clipboard.writeText(url);
+        button.textContent = 'Link copiado';
+    } catch {
+        window.prompt('Copie o link deste tema:', url);
+    }
+
+    window.setTimeout(() => {
+        button.textContent = 'Copiar link do tema';
+    }, 2200);
+}
+
+document.querySelectorAll('.topic-card').forEach(topic => {
+    topic.setAttribute('tabindex', '-1');
+
+    const linkButton = document.createElement('button');
+    linkButton.type = 'button';
+    linkButton.className = 'topic-link';
+    linkButton.textContent = 'Copiar link do tema';
+    linkButton.setAttribute(
+        'aria-label',
+        `Copiar link direto para ${topic.querySelector('h4').textContent}`
+    );
+    linkButton.addEventListener('click', () => copyTopicUrl(linkButton));
+    topic.querySelector('.topic-top').append(linkButton);
+
+    topic.addEventListener('click', event => {
+        if (event.target.closest('button, a, summary, details')) return;
+        goToTopic(topic);
+    });
+});
+
 // Permite selecionar as abas pelo mouse ou pelo teclado.
 tabs.forEach((tab, index) => {
     tab.addEventListener('click', () => {
@@ -78,6 +151,9 @@ document.querySelectorAll('[data-course]').forEach(button => {
         panel.focus({ preventScroll: true });
     });
 });
+
+openTopicFromHash();
+window.addEventListener('hashchange', openTopicFromHash);
 
 // Alterna entre os modos claro e escuro.
 const themeButton = document.querySelector('#theme-toggle');
