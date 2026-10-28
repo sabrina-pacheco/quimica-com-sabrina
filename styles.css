@@ -1203,6 +1203,20 @@ body.dark .future {
     min-height: 77px
 }
 
+.topic-card--image {
+    overflow: hidden;
+    padding: 0 21px 21px
+}
+
+.topic-card--image > img {
+    display: block;
+    width: calc(100% + 42px);
+    height: 154px;
+    margin: 0 -21px 18px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--line)
+}
+
 .topic-card details {
     border-top: 1px solid var(--line);
     padding-top: 12px
@@ -1276,6 +1290,16 @@ body.dark .future {
 
     .topic-card {
         padding: 20px
+    }
+
+    .topic-card--image {
+        padding: 0 20px 20px
+    }
+
+    .topic-card--image > img {
+        width: calc(100% + 40px);
+        height: 180px;
+        margin: 0 -20px 18px
     }
 
     .topic-card summary {

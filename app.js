@@ -25,12 +25,18 @@ function selectCourse(id, focusTab = false) {
     document.querySelector('#selected-name').textContent = names[id];
     panel.setAttribute('aria-labelledby', `tab-${id}`);
 
-    const hasTopics = id === 'quimica-1';
+    const contentByCourse = {
+        'quimica-1': '#topic-content',
+        'quimica-2': '#quimica-2-content'
+    };
+    const hasTopics = Boolean(contentByCourse[id]);
 
-    document.querySelector('#topic-content').hidden = !hasTopics;
+    Object.values(contentByCourse).forEach(selector => {
+        document.querySelector(selector).hidden = selector !== contentByCourse[id];
+    });
     document.querySelector('#course-empty').hidden = hasTopics;
     document.querySelector('#course-status').textContent =
-        hasTopics ? '11 temas' : 'Em preparação';
+        id === 'quimica-1' ? '11 temas' : id === 'quimica-2' ? '8 temas' : 'Em preparação';
 }
 
 // Abre um tema quando a URL termina com, por exemplo, #quimica-1-tema-09.
@@ -46,7 +52,7 @@ function openTopicFromHash() {
 
     if (!topic) return;
 
-    selectCourse('quimica-1');
+    selectCourse(topic.dataset.course || 'quimica-1');
     topic.querySelector('details')?.setAttribute('open', '');
 
     requestAnimationFrame(() => {
