@@ -34,10 +34,12 @@ function selectCourse(id, focusTab = false) {
     Object.values(contentByCourse).forEach(selector => {
         document.querySelector(selector).hidden = selector !== contentByCourse[id];
     });
+
     document.querySelector('#course-empty').hidden = hasTopics;
     document.querySelector('#course-status').textContent =
         id === 'quimica-1' ? '11 temas' : id === 'quimica-2' ? '8 temas' : 'Em preparação';
 }
+   
 
 // Abre um tema quando a URL termina com, por exemplo, #quimica-1-tema-09.
 function topicFromHash() {
