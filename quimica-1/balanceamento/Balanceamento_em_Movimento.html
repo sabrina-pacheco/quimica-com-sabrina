@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Balanceamento em movimento · Química I</title>
+<style>
+:root{--ink:#142c27;--muted:#47605a;--deep:#102f28;--green:#006b51;--mint:#d9f6e8;--paper:#f1f6f3;--line:#d6e4dc;--orange:#ab441e;--pale:#fff1e8}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.42}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #168f70;outline-offset:3px}sub,sup{line-height:0}
+.hero{background:var(--deep);color:white;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;inset:0 0 0 60%;background-image:radial-gradient(#74b89c 1px,transparent 1px);background-size:17px 17px;mask-image:linear-gradient(90deg,transparent,#000);opacity:.4;pointer-events:none}.wrap{max-width:1240px;margin:auto;padding-inline:28px}.intro{position:relative;z-index:1;padding-block:30px 34px}.eyebrow,.kicker{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800}.eyebrow{color:#a4e8ce}.hero h1{font-size:clamp(2.1rem,4.4vw,3.7rem);line-height:1.05;letter-spacing:-.055em;margin:9px 0 10px}.hero p{color:#d8eee5;margin:0;font-size:1rem}.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;padding-block:24px 32px;align-items:start}.card{background:white;border:1px solid var(--line);border-radius:18px}.rail{padding:18px}.rail h2{font-size:1.05rem;margin:0 0 4px}.rail p{font-size:.85rem;color:var(--muted);margin:0 0 14px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.grid button{border:1px solid var(--line);border-radius:8px;background:#f7faf8;color:var(--ink);min-height:39px;font-variant-numeric:tabular-nums;font-weight:650}.grid button[aria-current=true]{background:var(--green);border-color:var(--green);color:white}.grid button.done:not([aria-current=true]){background:var(--mint);border-color:#93d5bc}.meter{display:flex;align-items:center;gap:8px;margin-top:13px;font-size:.77rem;color:var(--muted)}progress{min-width:0;flex:1;accent-color:var(--green)}details{margin-top:16px;border-top:1px solid var(--line);padding-top:12px;font-size:.85rem;color:var(--muted)}summary{cursor:pointer;font-weight:700;color:var(--ink)}details p{margin:8px 0 0!important}
+.main{min-width:0;overflow:hidden}.mainhead{padding:18px 24px 0}.overline{display:flex;gap:9px 14px;align-items:center;flex-wrap:wrap;color:var(--green)}.badge{font-size:.78rem;font-weight:750;border-radius:99px;padding:4px 10px;color:var(--green);background:#e6f4ed}.main h2{margin:7px 0 12px;line-height:1.15;letter-spacing:-.025em;font-size:clamp(1.4rem,3vw,2rem)}.tabs{display:flex;gap:6px}.tabs button{padding:8px 12px;border:1px solid transparent;border-radius:9px 9px 0 0;background:transparent;color:var(--muted);font-weight:750;font-size:.9rem}.tabs button[aria-pressed=true]{background:#ecf6f0;color:var(--green);border-color:var(--line);border-bottom-color:#ecf6f0;position:relative;top:1px}.stage{background:#ecf6f0;border-block:1px solid var(--line);padding:15px 24px}.labels{display:grid;grid-template-columns:1fr 1fr;text-align:center;gap:34px;color:var(--muted);font-weight:800;font-size:.69rem;letter-spacing:.14em}.equation{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin:7px 0 0;text-align:center}.side{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px 8px}.term{display:inline-flex;align-items:baseline;gap:4px;white-space:nowrap;font-size:clamp(1.05rem,2.3vw,1.62rem);font-weight:730;letter-spacing:-.025em}.join,.arrow{color:var(--green);font-weight:800}.arrow{font-size:1.65rem}.term input{width:2.9em;font-size:.87rem;text-align:center;padding:6px 2px;border:1px solid #8caea0;border-radius:7px;color:var(--green);background:white;font-weight:850}.term input::-webkit-inner-spin-button{appearance:none}.coeff{color:var(--green);font-weight:900}.changed{animation:pop .54s ease both;border-radius:4px}@keyframes pop{0%{transform:scale(.72);background:#a5e8ce}62%{transform:scale(1.26);background:#a5e8ce}100%{transform:scale(1);background:transparent}}.element.focus{color:#005b45;background:#cdf0e0;border-radius:3px}.equation-state{font-size:.79rem;color:var(--muted);margin:9px 0 0;text-align:center}.body{padding:16px 24px 20px;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(200px,1fr);gap:18px}.task{min-width:0}.kicker{color:var(--green)}.task h3,.counts h3{margin:4px 0 6px;line-height:1.24;font-size:1.15rem}.task p{margin:0 0 10px;color:var(--muted)}.half{border-left:3px solid #2e9978;padding:7px 10px;background:#f0f8f4;border-radius:0 7px 7px 0;font-size:1rem;font-weight:740;margin:8px 0;overflow-wrap:anywhere}.controls,.pager{display:flex;flex-wrap:wrap;gap:7px;align-items:center}.controls{margin-top:12px}.btn{border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);font-weight:750;font-size:.85rem;padding:7px 10px}.btn.primary{color:white;background:var(--green);border-color:var(--green)}.btn:hover:not(:disabled){filter:brightness(.94)}.dots{display:flex;gap:5px;margin:0 0 8px}.dots button{height:28px;width:29px;border-radius:7px;border:1px solid var(--line);background:#f6faf7;color:var(--muted);font-size:.75rem;font-weight:800}.dots button[aria-current=step]{background:var(--deep);color:white}.counts{border:1px solid var(--line);border-radius:12px;padding:10px 13px;align-self:start;background:#fcfefc}.counts h3{font-size:.91rem;margin:0 0 4px}.counts table{width:100%;border-collapse:collapse;text-align:center;font-variant-numeric:tabular-nums;font-size:.84rem}.counts th,.counts td{padding:2px 3px;border-top:1px solid #e8f0eb}.counts thead th{font-size:.68rem;color:var(--muted);border-top:0}.counts tbody th{text-align:left}.counts tbody tr.active{background:#e7f6ee}.ok,.diff{display:inline-block;border-radius:6px;padding:0 6px;font-weight:800;min-width:22px}.ok{background:#d9f2e4;color:#145c42}.diff{background:var(--pale);color:var(--orange)}.status{min-height:1.35em;margin-top:8px!important;font-size:.9rem;font-weight:700}.status.good{color:var(--green)}.status.warn{color:var(--orange)}.footer{border-top:1px solid var(--line);padding:10px 24px;justify-content:space-between}.footer span{font-size:.82rem;color:var(--muted)}
+@media(max-width:830px){.layout{grid-template-columns:1fr;gap:14px}.grid{grid-template-columns:repeat(8,1fr)}.rail{padding:12px 16px}.wrap{padding-inline:16px}}
+@media(max-width:550px){.mainhead,.stage,.body,.footer{padding-inline:12px}.body{grid-template-columns:1fr;gap:10px}.intro{padding-block:22px}.wrap{padding-inline:10px}.grid{gap:4px}.grid button{min-height:34px}.term{font-size:1.02rem}.equation{gap:5px}.side{gap:5px}.term input{width:2.1em}.arrow{font-size:1.25rem}.hero p{font-size:.9rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap intro">
+<div class="eyebrow">Química I / Oxirredução</div>
+<h1>Balanceamento em movimento</h1>
+<p>Escolha uma reação, ajuste os coeficientes e acompanhe o que muda de um lado para o outro.</p>
+</div></header>
+<div class="wrap layout">
+<aside class="card rail" aria-label="Lista de exercícios">
+<h2>Lista de equações</h2><p>16 reações na ordem do PDF</p>
+<div id="list" class="grid"></div>
+<div class="meter"><progress id="meter" max="16" value="0" aria-label="Exercícios concluídos no modo tentativa"></progress><span id="tally">0 de 16 resolvidas</span></div>
+<details><summary>Como funcionam os métodos?</summary>
+<p><strong>Variação do NOX.</strong> Iguale a quantidade de elétrons perdidos e ganhos e depois complete os demais coeficientes.</p>
+<p><strong>Íon-elétron.</strong> Balanceie os átomos e a carga de cada semirreação. Iguale os elétrons, some as semirreações e cancele os termos em comum.</p>
+</details>
+</aside>
+<main class="card main">
+<div class="mainhead">
+<div class="overline"><span id="number" class="kicker"></span><span id="method" class="badge"></span></div>
+<h2 id="name"></h2>
+<div class="tabs" aria-label="Modo de estudo">
+<button type="button" id="tryTab" aria-pressed="true">Minha tentativa</button>
+<button type="button" id="guideTab" aria-pressed="false">Resolução animada</button>
+</div>
+</div>
+<section class="stage" aria-label="Equação química">
+<div class="labels"><span>Reagentes</span><span>Produtos</span></div>
+<div id="equation" class="equation"></div>
+<div id="equationState" class="equation-state"></div>
+</section>
+<div class="body">
+<section class="task" aria-label="Instruções e controles">
+<div id="attempt">
+<div class="kicker">Sua vez</div><h3>Acerte os coeficientes</h3>
+<p>Edite os números à frente das fórmulas. Use os menores números inteiros positivos possíveis e acompanhe a contagem ao lado.</p>
+<div class="controls"><button class="btn primary" type="button" id="check">Conferir tentativa</button><button class="btn" type="button" id="reset">Reiniciar tentativa</button></div>
+<p class="status" id="feedback" role="status"></p>
+</div>
+<div id="guide" hidden>
+<div class="dots" id="dots" aria-label="Etapas da resolução"></div>
+<div id="stepText" aria-live="polite"></div>
+<div class="controls"><button class="btn" type="button" id="back">← Voltar etapa</button><button class="btn primary" type="button" id="next">Avançar etapa →</button><button class="btn" type="button" id="play">▶ Reproduzir</button></div>
+</div>
+</section>
+<section class="counts" aria-label="Conferência de átomos e carga"><h3>Balanço de átomos e carga</h3><table>
+<thead><tr><th scope="col">Item</th><th scope="col">Reag.</th><th scope="col">Prod.</th><th scope="col">Iguais?</th></tr></thead>
+<tbody id="counts"></tbody>
+</table></section>
+</div>
+<div class="pager footer"><button class="btn" type="button" id="previousReaction">← Equação anterior</button><span id="pageCount"></span><button class="btn" type="button" id="nextReaction">Próxima equação →</button></div>
+</main>
+</div>
+<script>
+const reactions = [
+{
+  name:"Carbono e ácido nítrico", equation:"C + HNO3 → CO2 + NO2 + H2O",
+  method:"Variação do NOX", answer:[1,4,1,4,2],
+  steps:[
+    ["C N","Identifique quem perde e quem ganha elétrons","O C vai de 0 a +4 no CO2 e perde 4 e⁻. O N vai de +5 no HNO3 a +4 no NO2 e ganha 1 e⁻ por átomo."],
+    ["C N","Iguale a perda e o ganho","Para cada C oxidado, 4 átomos de N são reduzidos. Coloque 4 em HNO3 e em NO2.",[1,4,1,4,1]],
+    ["H O","Ajuste a água","Os 4 H dos reagentes pedem 2 H2O. Confira os 12 átomos de O em cada lado.",[1,4,1,4,2]]
+  ]
+},{
+  name:"Bismutato e peróxido", equation:"NaBiO3 + H2O2 + H2SO4 → Na2SO4 + Bi2(SO4)3 + H2O + O2",
+  method:"Variação do NOX", answer:[2,2,4,1,1,6,2],
+  steps:[
+    ["Bi O","Compare o bismuto e o oxigênio do peróxido","O Bi vai de +5 a +3 e ganha 2 e⁻. Os dois O do H2O2 que formam O2 vão de −1 a 0 e, juntos, perdem 2 e⁻."],
+    ["Bi Na O","Use a razão de 1 para 1","Um NaBiO3 corresponde a um H2O2. Como Bi2(SO4)3 contém dois Bi, use 2 NaBiO3 e 2 H2O2. Isso forma também 1 Na2SO4 e 2 O2.",[2,2,1,1,1,1,2]],
+    ["S H","Complete sulfato e água","Os sais somam 4 grupos sulfato, então use 4 H2SO4. Os 12 H dos reagentes formam 6 H2O.",[2,2,4,1,1,6,2]]
+  ]
+},{
+  name:"Permanganato e ácido oxálico", equation:"KMnO4 + H2C2O4 + H2SO4 → K2SO4 + MnSO4 + H2O + CO2",
+  method:"Variação do NOX", answer:[2,5,3,1,2,8,10],
+  steps:[
+    ["Mn C","Compare as variações de NOX","O Mn vai de +7 a +2 e ganha 5 e⁻. Cada C vai de +3 a +4 e perde 1 e⁻. Como há dois C em H2C2O4, cada molécula perde 2 e⁻."],
+    ["Mn C K","Iguale em 10 elétrons","Use 2 KMnO4 e 5 H2C2O4. São 2 Mn, 10 C e 2 K, que dão 2 MnSO4, 10 CO2 e 1 K2SO4.",[2,5,1,1,2,1,10]],
+    ["S H","Acerte os sulfatos e a água","Os produtos têm 3 grupos sulfato. Use 3 H2SO4. Os reagentes passam a ter 16 H, o que pede 8 H2O.",[2,5,3,1,2,8,10]]
+  ]
+},{
+  name:"Cromo e iodato em meio básico", equation:"Cr(OH)3 + IO3^- + OH^- → CrO4^2- + I^- + H2O",
+  method:"Íon-elétron · meio básico", answer:[2,1,4,2,1,5],
+  steps:[
+    ["Cr","Escreva a semirreação de oxidação","Cr passa de +3 a +6. Balanceie O e H com OH^- e H2O, e a carga com 3 e⁻ nos produtos.",null,["Cr(OH)3 + 5 OH^- → CrO4^2- + 4 H2O + 3 e^-"]],
+    ["I","Escreva a semirreação de redução","I passa de +5 a −1 e recebe 6 e⁻. Em meio básico, use água nos reagentes e OH^- nos produtos.",null,["IO3^- + 3 H2O + 6 e^- → I^- + 6 OH^-"]],
+    ["Cr I H O","Multiplique, some e simplifique","Multiplique a oxidação por 2 e some. Cancele os 6 e⁻. Dos 10 OH^- à esquerda e 6 à direita, sobram 4 à esquerda. Das 8 H2O à direita e 3 à esquerda, sobram 5 à direita.",[2,1,4,2,1,5]]
+  ]
+},{
+  name:"Sulfeto de mercúrio e ácido nítrico", equation:"HgS + HNO3 → Hg(NO3)2 + S + NO + H2O",
+  method:"Variação do NOX", answer:[3,8,3,3,2,4],
+  steps:[
+    ["S N","Identifique as mudanças de NOX","O S vai de −2 a 0 e perde 2 e⁻. O N que forma NO vai de +5 a +2 e ganha 3 e⁻. Hg permanece em +2."],
+    ["S N Hg","Iguale em 6 elétrons","Use 3 HgS e forme 3 S, 3 Hg(NO3)2 e 2 NO. Agora conte separadamente o N do sal e o N do NO.",[3,1,3,3,2,1]],
+    ["N H","Conte todo o nitrogênio","Há 6 N no sal e 2 N no NO. Use 8 HNO3 e complete com 4 H2O para conservar os 8 H.",[3,8,3,3,2,4]]
+  ]
+},{
+  name:"Permanganato e ferro(II)", equation:"MnO4^- + Fe^2+ + H^+ → Mn^2+ + Fe^3+ + H2O",
+  method:"Íon-elétron · meio ácido", answer:[1,5,8,1,5,4],
+  steps:[
+    ["Mn O H","Balanceie a redução do permanganato","Os 4 O pedem 4 H2O nos produtos. Use 8 H^+ nos reagentes e 5 e⁻ para acertar a carga.",null,["MnO4^- + 8 H^+ + 5 e^- → Mn^2+ + 4 H2O"]],
+    ["Fe","Balanceie a oxidação do ferro","Cada Fe(II) perde 1 e⁻. Multiplique a semirreação do Fe por 5 para igualar os elétrons.",null,["Fe^2+ → Fe^3+ + e^-"]],
+    ["Fe Mn","Some e cancele os elétrons","Some a redução com 5 vezes a oxidação. Os 5 e⁻ desaparecem da soma. A carga total é +17 nos dois lados.",[1,5,8,1,5,4]]
+  ]
+},{
+  name:"Dióxido de manganês e HBr", equation:"MnO2 + HBr → MnBr2 + Br2 + H2O",
+  method:"Variação do NOX", answer:[1,4,1,1,2],
+  steps:[
+    ["Mn Br","Acompanhe a transferência de elétrons","Mn vai de +4 a +2 e ganha 2 e⁻. Cada Br que passa de −1 a 0 perde 1 e⁻. Dois desses Br formam 1 Br2."],
+    ["Br","Conte os bromos que mantêm o NOX","Mais 2 Br permanecem em −1 no MnBr2. Ao todo são 4 Br nos produtos, então use 4 HBr.",[1,4,1,1,1]],
+    ["H O","Complete com água","Os 4 H dos reagentes formam 2 H2O. Essas duas águas também conservam os 2 O de MnO2.",[1,4,1,1,2]]
+  ]
+},{
+  name:"Dicromato e ácido oxálico", equation:"Cr2O7^2- + H2C2O4 + H^+ → Cr^3+ + CO2 + H2O",
+  method:"Íon-elétron · meio ácido", answer:[1,3,8,2,6,7],
+  steps:[
+    ["Cr O H","Balanceie a redução do dicromato","Use 2 Cr^3+ e 7 H2O nos produtos. Adicione 14 H^+ e 6 e⁻ nos reagentes.",null,["Cr2O7^2- + 14 H^+ + 6 e^- → 2 Cr^3+ + 7 H2O"]],
+    ["C H","Balanceie a oxidação do ácido oxálico","Os 2 C formam 2 CO2. Os 2 H saem como 2 H^+ e a perda de elétrons aparece nos produtos.",null,["H2C2O4 → 2 CO2 + 2 H^+ + 2 e^-"]],
+    ["Cr C H","Multiplique, some e simplifique","Multiplique a oxidação por 3. Cancele 6 e⁻ e subtraia 6 H^+ de cada lado. Sobram 8 H^+ nos reagentes.",[1,3,8,2,6,7]]
+  ]
+},{
+  name:"Bromo em meio básico", equation:"Br2 + NaOH → NaBr + NaBrO3 + H2O",
+  method:"Variação do NOX · desproporcionamento", answer:[3,6,5,1,3],
+  steps:[
+    ["Br","Encontre os dois destinos do bromo","No Br2, o NOX é 0. No NaBr, vai a −1 e ganha 1 e⁻ por átomo. No NaBrO3, vai a +5 e perde 5 e⁻ por átomo."],
+    ["Br","Combine cinco reduções e uma oxidação","Para cada Br oxidado, 5 são reduzidos. São 6 átomos de Br, então use 3 Br2 e forme 5 NaBr e 1 NaBrO3.",[3,1,5,1,1]],
+    ["Na H O","Ajuste a base e a água","Os sais têm 6 Na. Coloque 6 NaOH e use 3 H2O para conservar os 6 H.",[3,6,5,1,3]]
+  ]
+},{
+  name:"Permanganato e sulfito", equation:"MnO4^- + SO3^2- + H^+ → Mn^2+ + SO4^2- + H2O",
+  method:"Íon-elétron · meio ácido", answer:[2,5,6,2,5,3],
+  steps:[
+    ["Mn","Balanceie a redução do manganês","O Mn ganha 5 e⁻. Complete os 4 O com 4 H2O e use 8 H^+ nos reagentes.",null,["MnO4^- + 8 H^+ + 5 e^- → Mn^2+ + 4 H2O"]],
+    ["S","Balanceie a oxidação do sulfito","Use H2O para fornecer o O que falta. Coloque 2 H^+ e 2 e⁻ nos produtos.",null,["SO3^2- + H2O → SO4^2- + 2 H^+ + 2 e^-"]],
+    ["Mn S H O","Iguale em 10 elétrons e some","Multiplique a redução por 2 e a oxidação por 5. Cancele 10 e⁻, 10 H^+ e 5 H2O comuns. Sobram 6 H^+ à esquerda e 3 H2O à direita.",[2,5,6,2,5,3]]
+  ]
+},{
+  name:"Cromo(III) e dióxido de manganês", equation:"Cr^3+ + MnO2 + OH^- → CrO4^2- + Mn^2+ + H2O",
+  method:"Íon-elétron · meio básico", answer:[2,3,4,2,3,2],
+  steps:[
+    ["Cr","Balanceie a oxidação do cromo","O Cr vai de +3 a +6. Em meio básico, use 8 OH^- e libere 3 e⁻.",null,["Cr^3+ + 8 OH^- → CrO4^2- + 4 H2O + 3 e^-"]],
+    ["Mn","Balanceie a redução do manganês","O Mn vai de +4 a +2 e ganha 2 e⁻. Use H2O à esquerda e OH^- à direita.",null,["MnO2 + 2 H2O + 2 e^- → Mn^2+ + 4 OH^-"]],
+    ["Cr Mn H O","Iguale em 6 elétrons e some","Multiplique a oxidação por 2 e a redução por 3. Cancele 6 e⁻, 12 OH^- e 6 H2O comuns. Sobram 4 OH^- à esquerda e 2 H2O à direita.",[2,3,4,2,3,2]]
+  ]
+},{
+  name:"Cobalto(II) e hipobromito", equation:"Co^2+ + BrO^- + H^+ → Co^3+ + Br2 + H2O",
+  method:"Íon-elétron · meio ácido", answer:[2,2,4,2,1,2],
+  steps:[
+    ["Br O H","Balanceie a redução do hipobromito","Use 2 BrO^- para formar 1 Br2. Cada Br vai de +1 a 0, então entram 2 e⁻ ao todo. Complete O e H com água e H^+.",null,["2 BrO^- + 4 H^+ + 2 e^- → Br2 + 2 H2O"]],
+    ["Co","Balanceie a oxidação do cobalto","Cada Co(II) perde 1 e⁻. São necessários 2 Co(II) para fornecer os 2 e⁻.",null,["Co^2+ → Co^3+ + e^-"]],
+    ["Br Co","Some as semirreações","Some a redução com 2 vezes a oxidação e cancele 2 e⁻. A carga total é +6 de cada lado.",[2,2,4,2,1,2]]
+  ]
+},{
+  name:"Cobre e ácido nítrico · formação de NO", equation:"Cu + HNO3 → Cu(NO3)2 + NO + H2O",
+  method:"Variação do NOX", answer:[3,8,3,2,4],
+  steps:[
+    ["Cu N","Compare o cobre e o nitrogênio","Cu vai de 0 a +2 e perde 2 e⁻. O N que forma NO vai de +5 a +2 e ganha 3 e⁻."],
+    ["Cu N","Iguale em 6 elétrons","Use 3 Cu e forme 2 NO. Os 3 Cu formam 3 Cu(NO3)2, que contêm 6 N além dos 2 N do NO.",[3,1,3,2,1]],
+    ["N H","Complete o ácido e a água","Os 8 N dos produtos pedem 8 HNO3. Os 8 H dos reagentes pedem 4 H2O.",[3,8,3,2,4]]
+  ]
+},{
+  name:"Cobre e ácido nítrico · formação de NO₂", equation:"Cu + HNO3 → Cu(NO3)2 + NO2 + H2O",
+  method:"Variação do NOX", answer:[1,4,1,2,2],
+  steps:[
+    ["Cu N","Compare o cobre e o nitrogênio","Cu vai de 0 a +2 e perde 2 e⁻. O N que forma NO2 vai de +5 a +4 e ganha 1 e⁻."],
+    ["Cu N","Iguale em 2 elétrons","Para 1 Cu, forme 2 NO2. O Cu(NO3)2 formado contém mais 2 N, que permanecem com NOX +5.",[1,1,1,2,1]],
+    ["N H","Complete o ácido e a água","Os produtos têm 4 N ao todo, então use 4 HNO3. Complete os 4 H com 2 H2O.",[1,4,1,2,2]]
+  ]
+},{
+  name:"Arsenato e zinco", equation:"AsO4^3- + Zn + H^+ → Zn^2+ + AsH3 + H2O",
+  method:"Íon-elétron · meio ácido", answer:[1,4,11,4,1,4],
+  steps:[
+    ["As O H","Balanceie a redução do arsênio","As vai de +5 a −3 e ganha 8 e⁻. Use 4 H2O nos produtos. Com os 3 H de AsH3, são 11 H^+ nos reagentes.",null,["AsO4^3- + 11 H^+ + 8 e^- → AsH3 + 4 H2O"]],
+    ["Zn","Balanceie a oxidação do zinco","Cada Zn perde 2 e⁻. Multiplique a oxidação por 4 para fornecer 8 e⁻.",null,["Zn → Zn^2+ + 2 e^-"]],
+    ["As Zn","Some e confira a carga","Cancele 8 e⁻. A carga dos reagentes é −3 + 11 = +8 e a dos produtos é 4 × (+2) = +8.",[1,4,11,4,1,4]]
+  ]
+},{
+  name:"Sulfeto de prata e alumínio", equation:"Ag2S + Al + NaOH + H2O → Ag + H2S + NaAlO2",
+  method:"Variação do NOX", answer:[3,2,2,2,6,3,2],
+  steps:[
+    ["Ag Al","Encontre quem perde e quem ganha","Cada Ag vai de +1 a 0 e ganha 1 e⁻. São dois Ag em Ag2S. Cada Al vai de 0 a +3 e perde 3 e⁻."],
+    ["Ag Al S","Iguale em 6 elétrons","Use 3 Ag2S e 2 Al. Isso fornece 6 Ag, 3 H2S e 2 NaAlO2.",[3,2,1,1,6,3,2]],
+    ["Na O H","Complete com base e água","Use 2 NaOH para fornecer os 2 Na. Os produtos têm 4 O. Como 2 vêm do NaOH, acrescente 2 H2O. O total de H também fica igual a 6.",[3,2,2,2,6,3,2]]
+  ]
+}
+];
+const el = id => document.getElementById(id);
+const subDigits = "₀₁₂₃₄₅₆₇₈₉";
+const superDigits = "⁰¹²³⁴⁵⁶⁷⁸⁹";
+const pretty = raw => raw
+  .replace(/\^([0-9]*)([+-])/g, (_, magnitude, sign) =>
+    magnitude.replace(/\d/g, n => superDigits[n]) + (sign === "+" ? "⁺" : "⁻"))
+  .replace(/(?<=[A-Za-z)\d])\d+/g, digits => digits.replace(/\d/g, n => subDigits[n]));
+
+function parseSpecies(raw) {
+  const [formula, charge = ""] = raw.split("^");
+  const tokens = formula.match(/[A-Z][a-z]?|\d+|[()]|e/g);
+  const stack = [{}];
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
+    if (token === "(") {
+      stack.push({});
+      continue;
+    }
+    const group = token === ")" ? stack.pop() : token === "e" ? {} : {[token]: 1};
+    const multiplier = /^\d+$/.test(tokens[i + 1]) ? Number(tokens[++i]) : 1;
+    const target = stack.at(-1);
+    for (const [atom, count] of Object.entries(group)) {
+      target[atom] = (target[atom] || 0) + count * multiplier;
+    }
+  }
+  return {
+    raw, atoms: stack[0],
+    charge: charge ? (Number(charge.slice(0,-1)) || 1) * (charge.endsWith("+") ? 1 : -1) : 0
+  };
+}
+
+function parseEquation(equation) {
+  return equation.split(" → ").map(side => side.split(" + ").map(term => {
+    const match = term.match(/^(?:(\d+) )?(.+)$/);
+    return {...parseSpecies(match[2]), coefficient: Number(match[1] || 1)};
+  }));
+}
+
+function totals(sides, coefficients, elements) {
+  let index = 0;
+  return sides.map(side => {
+    const result = Object.fromEntries(elements.map(atom => [atom, 0]));
+    result.carga = 0;
+    for (const species of side) {
+      const coefficient = coefficients[index++];
+      result.carga += species.charge * coefficient;
+      for (const [atom, count] of Object.entries(species.atoms)) result[atom] += count * coefficient;
+    }
+    return result;
+  });
+}
+
+const exercises = reactions.map(item => {
+  const sides = parseEquation(item.equation);
+  const elements = [...new Set(sides.flat().flatMap(species => Object.keys(species.atoms)))];
+  return {...item, sides, elements, ionic: sides.flat().some(species => species.charge !== 0)};
+});
+const attempts = exercises.map(exercise => exercise.answer.map(() => "1"));
+const solved = new Set();
+let selected = 0;
+let mode = "attempt";
+let step = 0;
+let timer = null;
+const initial = ["","Observe a equação","Cada fórmula começa com coeficiente 1. Compare a contagem dos dois lados e identifique o método indicado no topo."];
+const final = ["","Confira átomos e carga","Cada elemento tem a mesma contagem nos reagentes e nos produtos. Nas equações iônicas, as cargas totais também coincidem. Os coeficientes estão na menor proporção inteira."];
+
+function current() { return exercises[selected]; }
+function guideSteps() { return [initial, ...current().steps, final]; }
+function lastStep() { return guideSteps().length - 1; }
+function valid(text) { return /^\d+$/.test(text) && Number(text) >= 1 && Number(text) <= 999; }
+function fmtCharge(value) { return value > 0 ? "+" + value : String(value).replace("-", "−"); }
+function attemptValues() { return attempts[selected].map(value => valid(value) ? Number(value) : 0); }
+
+function renderList() {
+  el("list").innerHTML = exercises.map((reaction, index) =>
+    '<button type="button" data-index="' + index + '" aria-label="Equação ' + (index+1) +
+    ' · ' + reaction.name + (solved.has(index) ? ' · resolvida' : '') + '" aria-current="' +
+    (selected === index) + '" class="' + (solved.has(index) ? 'done' : '') + '">' +
+    String(index+1).padStart(2,"0") + '</button>').join("");
+  el("meter").value = solved.size;
+  el("tally").textContent = solved.size + " de " + exercises.length + " resolvidas";
+}
+function formulaMarkup(raw, focus) {
+  return pretty(raw).replace(/[A-Z][a-z]?/g, atom =>
+    focus.includes(atom) ? '<span class="element focus">' + atom + '</span>' : atom);
+}
+function renderEquation(values, focus, previous) {
+  let index = 0;
+  const sideMarkup = current().sides.map(side => '<div class="side">' + side.map(species => {
+    const n = index++;
+    const formula = formulaMarkup(species.raw, focus);
+    const coefficient = mode === "attempt"
+      ? '<input type="text" inputmode="numeric" pattern="[0-9]+" maxlength="3" data-coeff="' + n +
+        '" aria-label="Coeficiente de ' + pretty(species.raw) + '" value="' + attempts[selected][n] + '">'
+      : values[n] === 1 ? "" : '<span class="coeff' + (previous && previous[n] !== values[n] ? " changed" : "") + '">' + values[n] + '</span>';
+    return '<span class="term">' + coefficient + '<span>' + formula + '</span></span>';
+  }).join('<span class="join">+</span>') + '</div>');
+  el("equation").innerHTML = sideMarkup.join('<span class="arrow" aria-label="forma">→</span>');
+}
+function renderCounts(values, focus) {
+  const {sides, elements, ionic} = current();
+  const ready = values.every(value => value > 0);
+  const [left, right] = totals(sides, values, elements);
+  const rows = ionic ? [...elements, "carga"] : elements;
+  el("counts").innerHTML = rows.map(atom => {
+    const format = atom === "carga" ? fmtCharge : String;
+    const equal = left[atom] === right[atom];
+    const flag = ready ? '<span class="' + (equal ? "ok" : "diff") + '" aria-label="' + (equal ? "Sim" : "Não") + '">' + (equal ? "=" : "≠") + '</span>' : "—";
+    return '<tr class="' + (focus.includes(atom) ? "active" : "") + '"><th scope="row">' + (atom === "carga" ? "Carga" : atom) +
+      '</th><td>' + (ready ? format(left[atom]) : "—") + '</td><td>' + (ready ? format(right[atom]) : "—") + '</td><td>' + flag + '</td></tr>';
+  }).join("");
+}
+function guideValues(at) {
+  if (at === lastStep()) return current().answer;
+  return guideSteps().slice(0, at+1).reverse().find(item => item[3])?.[3] || current().answer.map(() => 1);
+}
+function renderStudy(previous = null) {
+  const guided = mode === "guide";
+  el("attempt").hidden = guided;
+  el("guide").hidden = !guided;
+  el("tryTab").setAttribute("aria-pressed", !guided);
+  el("guideTab").setAttribute("aria-pressed", guided);
+  if (!guided) {
+    el("equationState").textContent = "A contagem é atualizada à medida que você altera os coeficientes.";
+    const values = attemptValues();
+    renderEquation(values, [], null);
+    renderCounts(values, []);
+    return;
+  }
+  const [focusText, title, description,, half] = guideSteps()[step];
+  const focus = focusText.split(" ").filter(Boolean);
+  const values = guideValues(step);
+  renderEquation(values, focus, previous);
+  renderCounts(values, focus);
+  el("equationState").textContent = step === lastStep() ? "Equação balanceada · coeficiente 1 implícito" :
+    (step === 0 || half ? "Equação de partida · coeficientes iguais a 1" : "Coeficientes desta etapa · confira o balanço");
+  el("dots").innerHTML = guideSteps().map((_, index) =>
+    '<button type="button" data-step="' + index + '" aria-label="Etapa ' + (index+1) + '" aria-current="' +
+    (step === index ? "step" : "false") + '">' + (index+1) + '</button>').join("");
+  el("stepText").innerHTML = '<div class="kicker">Etapa ' + (step+1) + ' de ' + guideSteps().length + '</div><h3>' +
+    title + '</h3><p>' + pretty(description) + '</p>' +
+    (half || []).map(line => '<div class="half">' + pretty(line) + '</div>').join("");
+  el("back").disabled = step === 0;
+  el("next").disabled = step === lastStep();
+  el("play").textContent = timer ? "❚❚ Pausar" : step === lastStep() ? "↻ Reproduzir de novo" : "▶ Reproduzir";
+}
+function pause() {
+  clearInterval(timer);
+  timer = null;
+}
+function showStep(index, manual = true) {
+  if (manual) pause();
+  const previous = guideValues(step);
+  step = index;
+  if (step === lastStep()) pause();
+  renderStudy(previous);
+}
+function renderReaction(index) {
+  pause();
+  selected = index;
+  step = 0;
+  mode = "attempt";
+  el("number").textContent = "Equação " + String(index+1).padStart(2,"0");
+  el("name").textContent = current().name;
+  el("method").textContent = "Método · " + current().method;
+  el("pageCount").textContent = (index+1) + " / " + exercises.length;
+  el("previousReaction").disabled = index === 0;
+  el("nextReaction").disabled = index === exercises.length - 1;
+  feedback("");
+  renderList();
+  renderStudy();
+}
+function feedback(message, style = "") {
+  el("feedback").textContent = message;
+  el("feedback").className = "status " + style;
+}
+function checkAttempt() {
+  const values = attemptValues();
+  if (values.includes(0)) {
+    feedback("Preencha cada campo com um número inteiro positivo de 1 a 999.", "warn");
+    return;
+  }
+  const [left, right] = totals(current().sides, values, current().elements);
+  if (Object.keys(left).some(atom => left[atom] !== right[atom])) {
+    feedback("Ainda há diferenças na tabela. Ajuste os coeficientes e confira de novo.", "warn");
+    return;
+  }
+  if (values.some((value, index) => value !== current().answer[index])) {
+    feedback("Átomos e carga estão equilibrados. Simplifique os coeficientes para a menor proporção inteira.", "warn");
+    return;
+  }
+  solved.add(selected);
+  renderList();
+  feedback("Equação balanceada na menor proporção inteira!", "good");
+}
+el("list").addEventListener("click", event => {
+  const button = event.target.closest("[data-index]");
+  if (!button) return;
+  renderReaction(Number(button.dataset.index));
+  el("list").querySelector('[aria-current="true"]').focus();
+});
+el("equation").addEventListener("input", event => {
+  const input = event.target.closest("[data-coeff]");
+  if (!input) return;
+  input.value = input.value.replace(/[^0-9]/g, "");
+  attempts[selected][Number(input.dataset.coeff)] = input.value;
+  feedback("");
+  renderCounts(attemptValues(), []);
+});
+el("equation").addEventListener("keydown", event => {
+  if (event.key === "Enter" && event.target.matches("[data-coeff]")) checkAttempt();
+});
+el("tryTab").addEventListener("click", () => {
+  if (mode === "attempt") return;
+  pause();
+  mode = "attempt";
+  renderStudy();
+});
+el("guideTab").addEventListener("click", () => {
+  if (mode === "guide") return;
+  mode = "guide";
+  renderStudy();
+});
+el("check").addEventListener("click", checkAttempt);
+el("reset").addEventListener("click", () => {
+  attempts[selected].fill("1");
+  feedback("");
+  renderStudy();
+  el("equation").querySelector("input").focus();
+});
+el("back").addEventListener("click", () => showStep(step-1));
+el("next").addEventListener("click", () => showStep(step+1));
+el("dots").addEventListener("click", event => {
+  const button = event.target.closest("[data-step]");
+  if (!button) return;
+  showStep(Number(button.dataset.step));
+  el("dots").querySelector('[aria-current="step"]').focus();
+});
+el("play").addEventListener("click", () => {
+  if (timer) {
+    pause();
+    renderStudy();
+    return;
+  }
+  if (step === lastStep()) step = 0;
+  timer = setInterval(() => showStep(step+1, false), 6500);
+  renderStudy();
+});
+el("previousReaction").addEventListener("click", () => renderReaction(selected-1));
+el("nextReaction").addEventListener("click", () => renderReaction(selected+1));
+renderReaction(0);
+
+</script>
+</body>
+</html>
