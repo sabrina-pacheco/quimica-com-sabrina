@@ -43,7 +43,7 @@ function selectCourse(id, focusTab = false) {
     document.querySelector('#course-status').textContent =
     id === 'quimica-1' ? '11 temas' :
     id === 'biotecnologia' ? '1 tema' :
-    id === 'quimica-2' ? '8 temas' :
+    id === 'quimica-2' ? '9 temas' :
     'Em preparação';
 }
    
@@ -76,9 +76,15 @@ function openTopicFromHash() {
     });
 }
 
+//botão para copiar o link direto para o tema.
+
 function topicUrl(topic) {
-    return `${window.location.origin}${window.location.pathname}#${topic.id}`;
+    const siteUrl = 'https://sabrina-pacheco.github.io/quimica-com-sabrina/';
+    return `${siteUrl}#${topic.id}`;
 }
+
+
+// Abre o tema clicado ou altera a URL para que ele seja aberto.
 
 function goToTopic(topic) {
     if (window.location.hash === `#${topic.id}`) openTopicFromHash();
@@ -100,6 +106,8 @@ async function copyTopicUrl(button) {
         button.textContent = 'Copiar link do tema';
     }, 2200);
 }
+
+// Adiciona o botão de copiar link e o evento de abrir o tema ao clicar no card.
 
 document.querySelectorAll('.topic-card').forEach(topic => {
     topic.setAttribute('tabindex', '-1');
