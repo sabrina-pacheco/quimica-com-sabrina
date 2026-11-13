@@ -25,10 +25,14 @@ function selectCourse(id, focusTab = false) {
     document.querySelector('#selected-name').textContent = names[id];
     panel.setAttribute('aria-labelledby', `tab-${id}`);
 
+
+//mostra o conteúdo da disciplina selecionada e esconde os outros.
+
     const contentByCourse = {
-        'quimica-1': '#topic-content',
-        'quimica-2': '#quimica-2-content'
-    };
+    'quimica-1': '#topic-content',
+    'biotecnologia': '#biotecnologia-content',
+    'quimica-2': '#quimica-2-content'
+};
     const hasTopics = Boolean(contentByCourse[id]);
 
     Object.values(contentByCourse).forEach(selector => {
@@ -37,7 +41,10 @@ function selectCourse(id, focusTab = false) {
 
     document.querySelector('#course-empty').hidden = hasTopics;
     document.querySelector('#course-status').textContent =
-        id === 'quimica-1' ? '11 temas' : id === 'quimica-2' ? '8 temas' : 'Em preparação';
+    id === 'quimica-1' ? '11 temas' :
+    id === 'biotecnologia' ? '1 tema' :
+    id === 'quimica-2' ? '8 temas' :
+    'Em preparação';
 }
    
 
